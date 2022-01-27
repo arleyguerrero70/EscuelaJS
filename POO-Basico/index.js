@@ -149,6 +149,8 @@ class Student{
     twitter = undefined,
     instagram = undefined,
     facebook = undefined,
+    learningPaths =[],
+    courseAprove = [],
   })
   {
     this.name = name;
@@ -160,9 +162,32 @@ class Student{
       instagram,
       facebook,
     };
+    this.learningPaths = learningPaths;
+    this.courseAprove = courseAprove;
   }
 }
-
+class Clase{
+  constructor({
+    nombreClase,
+    profesorClase,
+    tiempoClase
+  })
+  {
+    this.nombreClase = nombreClase;
+    this.profesorClase = profesorClase;
+    this.tiempoClase = tiempoClase;
+  }
+};
+class Curso{
+  constructor({
+    nombreCurso,
+    clasesCurso = [],
+  })
+  {
+    this.nombreCurso = nombreCurso;
+    this.clasesCurso = clasesCurso;
+  }
+}
 class LearningPaths{
   constructor({
     nameLearningPaths,
@@ -172,6 +197,22 @@ class LearningPaths{
     this.coursesLearningPaths = coursesLearningPaths;
   }
 }
+const claseFutbolPoo = new Clase({
+  nombreClase:'Futbol y programación orientada a objetos',
+  profesorClase: 'Juanda Castro',
+  tiempoClase: 10,
+});
+
+const cursoProgBasica = new Curso({
+  nombreCurso: 'Curso Gratis de progrmación báscica',
+});
+const cursoPensamientoLogico = new Curso({
+  nombreCurso: 'Curso de pensamiento Lógico',
+});
+const cursoDeAlgoritmos = new Curso({
+  nombreCurso: 'Curso solución de Algoritmos',
+});
+
 
 const escuelaJS = new LearningPaths({
   nameLearningPaths:'Escuela de Javascript',
@@ -179,25 +220,40 @@ const escuelaJS = new LearningPaths({
     'Prework en Windows',
     'Prework en Mac',
     'Prework en Linux',
-  ]
+  ],
 });
 
 const desarrolloWeb = new LearningPaths({
   nameLearningPaths:'Escuela de Desarrollo Web',
   coursesLearningPaths:[
-    'Programación básica',
-    'Pensamiento lógico',
-    'solución de algoritmos',
-  ]
+    cursoProgBasica,
+    cursoPensamientoLogico,
+    cursoDeAlgoritmos,
+  ],
+});
+
+
+const escuelaDataScience = new LearningPaths({
+  nameLearningPaths:'Escuela de Data Science',
+  coursesLearningPaths:[
+    'Data Bussines',
+    'DataViz',
+  ],
 });
 
 const juan2 = new Student ({
   name :'Juan Dos',
   username :'juan@dos',
   email: 'juan@juan.com',
-  facebook: "Facebook Juan Dos"
+  facebook: "Facebook Juan Dos",
+  learningPaths:[
+    escuelaDataScience,
+    desarrolloWeb,
+  ],
+  courseAprove :[
+    'Historia del internet',
+    'Curso práctico de HTML y CSS'
+  ],
 });
 
 console.log(juan2);
-console.log(escuelaJS);
-console.log(desarrolloWeb);

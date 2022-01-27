@@ -184,8 +184,18 @@ class Curso{
     clasesCurso = [],
   })
   {
-    this.nombreCurso = nombreCurso;
+    this._nombreCurso = nombreCurso;
     this.clasesCurso = clasesCurso;
+  }
+  get (){
+    return this._nombreCurso;
+  }
+  set(nuevoNombreCurso){
+    if(nuevoNombreCurso === "Curso malo de programación"){
+      console.error('No cambiar el nombre del curso');
+    }else{
+      this._nombreCurso = nuevoNombreCurso;
+    }
   }
 }
 class LearningPaths{

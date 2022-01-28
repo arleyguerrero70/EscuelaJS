@@ -23,15 +23,15 @@ const estudiante = {
   },
 }; /** OBJETO LITERAL */
 
-function Student(name, age, courses) {
+function Student1(name, age, courses) {
   this.name = name;
   this.age = age;
   this.courses = courses;
 }
-Student.prototype.aproveCourse = function (newCourse) {
+Student1.prototype.aproveCourse = function (newCourse) {
   this.courses.push(newCourse);
 };
-const arley = new Student("Arley", 25, [
+const arley = new Student1("Arley", 25, [
   "Curso de marca personal",
   "Curso de Git y Github",
 ]);
@@ -267,3 +267,17 @@ const juan2 = new Student ({
 });
 
 console.log(juan2);
+
+
+// Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe.miFuncion(1000, 20) devolverá 800.
+
+const valorTotal = (valorTotal=undefined, valorDescuento=undefined) =>{
+  if(valorTotal === undefined) return console.log('El valor ingresado no es un número');
+  if(valorDescuento === undefined) return console.log('El valor ingresado no es un número');
+  if(typeof valorTotal !== "number") return console.warn(`El valor:  ${valorTotal} no es un número`);
+  if(typeof valorDescuento !== "number") return console.warn(`El valor:  ${valorDescuento} no es un número`);
+  let resultadoDescuento = valorTotal- (valorTotal * valorDescuento)/100;
+  console.log(resultadoDescuento);
+}
+
+valorTotal(15,[20,15]);
